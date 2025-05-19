@@ -9,7 +9,6 @@ import random
 from datetime import datetime
 import certifi
 
-#sanjay
 # Load environment variables
 load_dotenv()
 
