@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import string
 import random
 from datetime import datetime
+import certifi
 
 # Load environment variables
 load_dotenv()
@@ -25,8 +26,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# MongoDB connection
-client = AsyncIOMotorClient(os.getenv("MONGODB_URI"))
+# MongoDB connection with SSL certificate
+client = AsyncIOMotorClient(
+    os.getenv("MONGODB_URI"),
+    tlsCAFile=certifi.where()
+)
 db = client.url_shortener
 urls = db.urls
 
