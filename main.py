@@ -16,7 +16,7 @@ load_dotenv()
 app = FastAPI()
 
 # Get allowed origins from environment variable or use default
-ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "https://url-shortner-lime-one.vercel.app/").split(",")
 
 # CORS middleware configuration
 app.add_middleware(
